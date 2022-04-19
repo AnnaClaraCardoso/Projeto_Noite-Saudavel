@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chart.js": "^3.7.1",
+    "styled-components": "^5.3.5"
+  }
+}
