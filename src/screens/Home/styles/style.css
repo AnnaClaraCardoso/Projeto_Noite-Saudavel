@@ -1,0 +1,130 @@
+:root {
+    margin: 0;
+}
+
+body{
+    background: linear-gradient(
+        rgb(33, 1, 48) 0%, 
+        rgb(62, 3, 85) 35%, 
+        rgb(185, 125, 235) 100%
+   
+  );
+
+    color: rgb(208, 155, 224);
+    font-family:'Poppins', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+aside, .col-2 {
+    width: 50%;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(198, 159, 221);
+    transition: 0.3s all;
+}
+
+#inscreva-se:hover{
+    background-color: rgb(46, 7, 109);
+    color: white;
+}
+
+h2{
+    font-weight: 300;
+}
+.col-2 .criar-perfil {
+
+    font-weight: 100;
+
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+h2{
+    font-size: 56px;
+    line-height: 35px;
+    font-family: 'Poppins', sans-serif;
+}
+
+span{
+    color: rgb(189, 152, 211);
+}
+
+p{
+    line-height: 20px;
+    max-width: 500px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 15px;
+    text-align: center;
+}
+
+.criar-perfil input{
+    width: 80%;
+    height: 45px;
+    border-radius: 8px;
+    background-color: rgb(244, 241, 247);
+    border: 0.3px solid rgb(212, 179, 230);
+    padding-left: 22px;
+}
+
+.criar-perfil .cadastrar button{
+    background-color:rgb(59, 0, 94);
+    border: none;
+    width: 50%;
+    height: 50px;
+    border-radius: 40px;
+    color: white;
+
+}
+
+.criar-perfil .cadastrar{
+    margin-top: 35px;
+    margin-bottom: 30px;
+    
+}
+
+.col-2 .criar-perfil .cadastrar{
+
+   text-align: center;
+}
+
+.nome, .cpf , .email, .senha, .iestadual{
+    margin-top: 15px;
+}
+
+.nome{
+    margin-top: 35px;
+}
+
