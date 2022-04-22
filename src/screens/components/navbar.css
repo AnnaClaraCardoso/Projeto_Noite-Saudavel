@@ -1,0 +1,39 @@
+@import url(/src/screens/theme/theme.css);
+
+header {
+  height: 50px;
+  padding: 20px 20px;
+  background-color: var(--purple);
+}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+header nav ul li {
+  padding-right: 25px;
+}
+
+.nav-link:hover {
+  color: #CA3DF5;
+}
+
+header nav ul li a {
+  text-decoration: none;
+}
+
+header nav ul li button {
+  background-color: var(--blue);
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--blue);
+  color: #fff;
+  width: 6em;
+}
