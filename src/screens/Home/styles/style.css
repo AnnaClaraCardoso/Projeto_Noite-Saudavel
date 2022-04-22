@@ -1,0 +1,97 @@
+@import '/src/screens/theme/theme.css';
+
+@import url('/src/screens/theme/body.css');
+
+@import url('/src/screens/components/navbar.css');
+
+body{
+background: linear-gradient(
+    rgb(33, 1, 48) 0%, 
+    rgb(62, 3, 85) 35%, 
+    rgb(185, 125, 235) 100%
+  );
+}
+
+aside, .col-2 {
+    width: 50%;
+}
+.col-2 .criar-perfil {
+    font-weight: 100;
+
+}
+
+main{
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 3em;
+}
+
+h2{
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 35px;
+    padding-bottom: 20px;
+}
+
+span{
+    color: rgb(189, 152, 211);
+}
+
+p{
+    line-height: 20px;
+    max-width: 500px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.criar-perfil input{
+    width: 80%;
+    height: 45px;
+    border-radius: 8px;
+    background-color: rgb(244, 241, 247);
+    border: 0.3px solid rgb(212, 179, 230);
+    padding-left: 22px;
+}
+
+.criar-perfil input:focus{
+    outline: none;
+}
+
+.criar-perfil .cadastrar button{
+    background-color:rgb(59, 0, 94);
+    border: none;
+    width: 50%;
+    height: 50px;
+    border-radius: 40px;
+    color: white;
+
+}
+
+.criar-perfil .cadastrar{
+    margin-top: 35px;
+    margin-bottom: 30px;
+    
+}
+
+.col-2 .criar-perfil .cadastrar{
+
+   text-align: center;
+}
+
+.nome, .cpf , .email, .senha, .iestadual{
+    margin-top: 15px;
+}
+
+.nome{
+    margin-top: 35px;
+}
+
