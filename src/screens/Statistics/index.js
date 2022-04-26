@@ -1,12 +1,16 @@
-const canvas = document.getElementById("myCanvas").getContext('2d');
+const canvasIDs = ["sleep-duration-chart", "sleep-regularity-chart", "deficits-n-surpluses-chart", "sleep-goal-chart"];
+const chartsArr = []
+canvasIDs.forEach(element => {
+  chartsArr.push(document.getElementById(element).getContext('2d'))
+});
 
 const labels = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
 
 let data = {
   labels: labels,
   datasets: [{
-    label: ['Horas'], 
-    data: [7, 5, 8, 8,5, 10, 11, 3],
+    // label: '',
+    //data: [],
     backgroundColor: [
       '#3339A6',
     ]
@@ -14,13 +18,12 @@ let data = {
   color: '#00000'
 };
 
-const config = {
-  type: 'bar',
+let config = {
+  // type: ''
   data: data,
   options: {
     title: {
-      display: true,
-      text: "Sleep Duration"
+      display: true
     },
     scales: {
       y: {
@@ -44,4 +47,7 @@ const config = {
   },
 };
 
-let chart = new Chart(canvas, config);
+chartsArr.forEach(canva => {
+  const chart = new Chart(canva);
+  chart.config = 
+});
