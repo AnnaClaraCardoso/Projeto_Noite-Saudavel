@@ -1,53 +1,51 @@
 const canvasIDs = ["sleep-duration-chart", "sleep-regularity-chart", "deficits-n-surpluses-chart", "sleep-goal-chart"];
 const chartsArr = []
 canvasIDs.forEach(element => {
-  chartsArr.push(document.getElementById(element).getContext('2d'))
+  chartsArr.push(document.getElementById(element).getContext('2d'));
 });
 
 const labels = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
 
-let data = {
-  labels: labels,
-  datasets: [{
-    // label: '',
-    //data: [],
-    backgroundColor: [
-      '#3339A6',
-    ]
-  }],
-  color: '#00000'
-};
+chartsArr.forEach(canvaContexts => {
+  console.log(canvaContexts)
+})
 
-let config = {
-  // type: ''
-  data: data,
-  options: {
-    title: {
-      display: true
+let chartSleepDuration = new Chart(chartsArr[0], {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: [7, 5, 8, 8.5, 10, 11, 3],
+        backgroundColor: [
+          '#3339A6',
+        ]
+      }],
+      color: '#00000'
     },
-    scales: {
-      y: {
-        ticks: {
-          color: '#815A8C'
-        },
-        grid: {
-          color: '#330740'
-        },
-        beginAtZero: true
+    options: {
+      title: {
+        display: true,
+        text: "Sleep Duration"
       },
-      x: {
-        grid: {
-          color: 'transparent'
+      scales: {
+        y: {
+          ticks: {
+            color: '#815A8C'
+          },
+          grid: {
+            color: '#330740'
+          },
+          beginAtZero: true
         },
-        ticks: {
-          color: '#815A8C'
+        x: {
+          grid: {
+            color: 'transparent'
+          },
+          ticks: {
+            color: '#815A8C'
+          }
         }
       }
-    }
-  },
-};
-
-chartsArr.forEach(canva => {
-  const chart = new Chart(canva);
-  chart.config = 
-});
+    },
+  }
+);
