@@ -1,10 +1,93 @@
+let dates = [
+  new Date('Fri, April 01, 2022'), 
+  new Date('Sat, April 02, 2022'), 
+  new Date('Sun, April 03, 2022'), 
+  new Date('Mon, April 04, 2022'), 
+  new Date('Tue, April 05, 2022'), 
+  new Date('Wed, April 06, 2022'), 
+  new Date('Thu, April 07, 2022')
+];
+
+let exemData = [65, 59, 75, 81, 56, 55, 40];
+
+const Data = {
+  labels: dates,
+  datasets: [{
+    label: 'My First Dataset',
+    data: exemData,
+    backgroundColor: [
+      'rgba(255, 99, 132, 0.2)'
+    ],
+    borderColor: [
+      'rgb(255, 99, 132)'
+    ],
+    borderWidth: 1
+  }]
+};
+
+const config = {
+  type: 'bar',
+  data: Data,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          unit: 'day',
+          timezone: 'America/Sao_Paulo',
+          tooltipFormat : 'E, d MMM, yyyy',
+          displayFormats: {
+            day: 'E, d MMM'
+          }
+        }
+      },
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+};
+
+const exemCanvas = document.getElementById('exemple').getContext('2d');
+
+const exemChart = new Chart(exemCanvas, config);
+
+
+const today = new Date();
+const dd = today.getDate();
+const mm = today.getMonth() + 1; //January is 0!
+const yyyy = today.getFullYear();
+
+if (dd < 10) {
+   dd = '0' + dd;
+}
+
+if (mm < 10) {
+   mm = '0' + mm;
+} 
+    
+today = yyyy + '-' + mm + '-' + dd;
+
+const startDateInput = document.getElementById('date-start')
+const endDateInput = document.getElementById('date-end')
+
+startDateInput.setAttribute("max", today);
+endDateInput.setAttribute("max", today);
+
+function filterData(params) {
+  const startValueDate = new Date(startDateInput.value);
+  const endValueDate = new Date(endDateInput.value);
+
+  
+  console.log(start);
+  console.log(end);
+}
+
 const canvasIDs = ["sleep-duration-chart", "sleep-intervals-chart", "sleep-goal-chart"];
 const chartsArr = [];
 canvasIDs.forEach(chartID => {
   chartsArr.push(document.getElementById(chartID).getContext('2d'));
 });
-
-const labels = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
 
 // chartsArr.forEach(canvaContexts => {
 //   console.log(canvaContexts)
@@ -13,7 +96,7 @@ const labels = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Do
 const chartSleepDuration = new Chart(chartsArr[0], {
     type: 'bar',
     data: {
-      labels: labels,
+      labels: dates,
       datasets: [{
         data: [7, 5, 8, 8.5, 10, 11, 3],
         backgroundColor: [
@@ -38,6 +121,15 @@ const chartSleepDuration = new Chart(chartsArr[0], {
           beginAtZero: true
         },
         x: {
+          type: 'time',
+          time: {
+            unit: 'day',
+            timezone: 'America/Sao_Paulo',
+            tooltipFormat : 'E, d MMM, yyyy',
+            displayFormats: {
+              day: 'E, d MMM'
+            }
+          }, 
           grid: {
             color: 'transparent'
           },
@@ -53,7 +145,7 @@ const chartSleepDuration = new Chart(chartsArr[0], {
 const chartSleepIntervals = new Chart(chartsArr[1], {
     type: 'bar',
     data: {
-      labels: labels,
+      labels: dates,
       datasets: [{
         data: [
           // referente às posições das labels
@@ -74,6 +166,15 @@ const chartSleepIntervals = new Chart(chartsArr[1], {
       },
       scales: {
         y: {
+          type: 'time',
+          time: {
+            unit: 'day',
+            timezone: 'America/Sao_Paulo',
+            tooltipFormat : 'E, d MMM, yyyy',
+            displayFormats: {
+              day: 'E, d MMM'
+            }
+          },
           ticks: {
             color: '#815A8C'
           },
@@ -116,7 +217,7 @@ const goalPrcentData = [50, 60, 80, 120, 80, 90, 140]
 const overflowPercentData = []
 
 const data = {
-  labels: labels,
+  labels: dates,
   datasets: [
     {
       label: `Horas dentro do objetivo`,
@@ -152,6 +253,15 @@ const chartSleepGoal = new Chart(chartsArr[2], {
       responsive: true,
       scales: {
         x: {
+          type: 'time',
+          time: {
+            unit: 'day',
+            timezone: 'America/Sao_Paulo',
+            tooltipFormat : 'E, d MMM, yyyy',
+            displayFormats: {
+              day: 'E, d MMM'
+            }
+          },
           stacked: true,
         },
         y: {
