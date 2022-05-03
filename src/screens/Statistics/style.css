@@ -22,14 +22,17 @@ body {
   height: 100%;
 }
 
-.cards, .charts {
+.cards, .statistics-charts {
   width: 100%;
   display: flex;
-  gap: 15px;
+  flex-direction: column;
 }
 
 .charts {
+  display: flex;
   flex-direction: column;
+  gap: 15px;
+  
 }
 
 .card, .chart {
@@ -68,8 +71,7 @@ body {
   font-size: 32px;
 }
 
-#myCanvas {
+.canva-chart {
   max-width: 600px;
   max-height: 400px;
 }
-
