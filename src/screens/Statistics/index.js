@@ -1,3 +1,4 @@
+// labels dos graficos
 let dates = [
   new Date('Fri, April 01, 2022'), 
   new Date('Sat, April 02, 2022'), 
@@ -8,6 +9,8 @@ let dates = [
   new Date('Thu, April 07, 2022')
 ];
 
+
+// Gráfico de controle de testes; não fará parte do resultado final
 let exemData = [65, 59, 75, 81, 56, 55, 40];
 
 const Data = {
@@ -53,6 +56,7 @@ const exemCanvas = document.getElementById('exemple').getContext('2d');
 const exemChart = new Chart(exemCanvas, config);
 
 
+// Fazendo elementos que farão parte da página
 const today = new Date();
 const dd = today.getDate();
 const mm = today.getMonth() + 1; //January is 0!
@@ -78,7 +82,7 @@ function filterData(params) {
   const startValueDate = new Date(startDateInput.value);
   const endValueDate = new Date(endDateInput.value);
 
-  
+
   console.log(start);
   console.log(end);
 }
