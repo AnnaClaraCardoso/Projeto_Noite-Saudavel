@@ -22,17 +22,17 @@ body {
   height: 100%;
 }
 
-.cards, .statistics-charts {
-  width: 100%;
+.statistics-charts, .cards, .charts {
   display: flex;
-  flex-direction: column;
 }
 
-.charts {
-  display: flex;
-  flex-direction: column;
+.cards, .charts {
+  width: 100%;
   gap: 15px;
-  
+}
+
+.statistics-charts, .charts {
+  flex-direction: column;
 }
 
 .card, .chart {
