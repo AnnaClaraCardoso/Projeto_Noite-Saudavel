@@ -65,12 +65,14 @@ canvasIDs.forEach(chartID => {
 //   console.log(canvaContexts)
 // })
 
+let sleepDurationData = [7, 5, 8, 8.5, 10, 11, 3]
+
 const chartSleepDuration = new Chart(chartsArr[0], {
     type: 'bar',
     data: {
       labels: dates,
       datasets: [{
-        data: [7, 5, 8, 8.5, 10, 11, 3],
+        data: sleepDurationData,
         backgroundColor: [
           '#3339A6',
         ]
@@ -114,16 +116,18 @@ const chartSleepDuration = new Chart(chartsArr[0], {
   }
 );
 
+let sleepIntervalsData = [
+  // referente às posições das labels
+  [4, 13],
+
+]
+
 const chartSleepIntervals = new Chart(chartsArr[1], {
     type: 'bar',
     data: {
       labels: dates,
       datasets: [{
-        data: [
-          // referente às posições das labels
-          [4, 13],
-
-        ],
+        data: sleepIntervalsData,
         backgroundColor: [
           '#3339A6',
         ]
@@ -185,10 +189,10 @@ const chartSleepIntervals = new Chart(chartsArr[1], {
 
 
 const bgColor = []
-const goalPrcentData = [50, 60, 80, 120, 80, 90, 140]
-const overflowPercentData = []
+let goalPrcentData = [50, 60, 80, 120, 80, 90, 140]
+let overflowPercentData = []
 
-const data = {
+const sleepGoalData = {
   labels: dates,
   datasets: [
     {
@@ -214,7 +218,7 @@ goalPrcentData.forEach((value, index) => {
 
 const chartSleepGoal = new Chart(chartsArr[2], {
     type: 'bar',
-    data: data,
+    data: sleepGoalData,
     options: {
       plugins: {
         title: {
@@ -249,13 +253,16 @@ const chartSleepGoal = new Chart(chartsArr[2], {
   }
 );
 
-function filterData(params) {
+function filterData() {
+
+  // Pegando datas
   const startValueDate = new Date(`${startDateInput.value} 00:00:00`);
   const endValueDate = new Date(`${endDateInput.value} 00:00:00`);
 
   console.log(startValueDate);
   console.log(endValueDate);
 
+  // Criando label com novo intervalo de datas
   const filterDates = dates.filter(date => date >= startValueDate && date <= endValueDate);
   exemChart.config.data.labels = filterDates;
   chartSleepDuration.config.data.labels = filterDates;
@@ -263,15 +270,26 @@ function filterData(params) {
   chartSleepGoal.config.data.labels = filterDates;
   
   // modificando dados
-
   const dataStartArray = dates.indexOf(filterDates[0]);
   const dataEndArray = dates.indexOf(filterDates[filterDates.length - 1]);
   // console.log(dataEndArray)
 
-  const copyDataPoints = [[...exemData], [...sleepDurationData], [...sleepIntervalsData], [...sleepGoalData]];
-  console.log(copyDataPoints)
-  copyDataPoints.splice(dataEndArray + 1)
+  const dataPointsArray = [
+    [...exemData], 
+    [...sleepDurationData], 
+    [...sleepIntervalsData], 
+    [...goalPrcentData], 
+    [...overflowPercentData]
+  ];
+
+  console.log(dataPointsArray);
+
+  dataPointsArray.forEach((dataPoints) => {
+    dataPoints.splice(dataEndArray + 1)
+  });
 
   exemChart.update();
-  
+  chartSleepDuration.update();
+  chartSleepIntervals.update();
+  chartSleepGoal.update();
 }
