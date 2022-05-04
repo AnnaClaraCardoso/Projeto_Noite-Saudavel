@@ -9,28 +9,29 @@ let dates = [
   new Date('Thu, April 07, 2022')
 ];
 
+// inputs do filtro por data
+const startDateInput = document.getElementById('date-start');
+const endDateInput = document.getElementById('date-end');
 
 // Gráfico de controle de testes; não fará parte do resultado final
 let exemData = [65, 59, 75, 81, 56, 55, 40];
 
-const Data = {
-  labels: dates,
-  datasets: [{
-    label: 'My First Dataset',
-    data: exemData,
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)'
-    ],
-    borderWidth: 1
-  }]
-};
-
-const config = {
+const exemChart = new Chart(document.getElementById('exemple').getContext('2d'), {
   type: 'bar',
-  data: Data,
+  data: {
+    labels: dates,
+    datasets: [{
+      label: 'My First Dataset',
+      data: exemData,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)'
+      ],
+      borderColor: [
+        'rgb(255, 99, 132)'
+      ],
+      borderWidth: 1
+    }]
+  },
   options: {
     scales: {
       x: {
@@ -49,23 +50,10 @@ const config = {
       }
     }
   },
-};
-
-const exemCanvas = document.getElementById('exemple').getContext('2d');
-
-const exemChart = new Chart(exemCanvas, config);
+});
 
 
 // Fazendo elementos que farão parte da página
-
-function filterData(params) {
-  const startValueDate = new Date(startDateInput.value);
-  const endValueDate = new Date(endDateInput.value);
-
-
-  console.log(start);
-  console.log(end);
-}
 
 const canvasIDs = ["sleep-duration-chart", "sleep-intervals-chart", "sleep-goal-chart"];
 const chartsArr = [];
@@ -260,3 +248,30 @@ const chartSleepGoal = new Chart(chartsArr[2], {
     }
   }
 );
+
+function filterData(params) {
+  const startValueDate = new Date(`${startDateInput.value} 00:00:00`);
+  const endValueDate = new Date(`${endDateInput.value} 00:00:00`);
+
+  console.log(startValueDate);
+  console.log(endValueDate);
+
+  const filterDates = dates.filter(date => date >= startValueDate && date <= endValueDate);
+  exemChart.config.data.labels = filterDates;
+  chartSleepDuration.config.data.labels = filterDates;
+  chartSleepIntervals.config.data.labels = filterDates;
+  chartSleepGoal.config.data.labels = filterDates;
+  
+  // modificando dados
+
+  const dataStartArray = dates.indexOf(filterDates[0]);
+  const dataEndArray = dates.indexOf(filterDates[filterDates.length - 1]);
+  // console.log(dataEndArray)
+
+  const copyDataPoints = [[...exemData], [...sleepDurationData], [...sleepIntervalsData], [...sleepGoalData]];
+  console.log(copyDataPoints)
+  copyDataPoints.splice(dataEndArray + 1)
+
+  exemChart.update();
+  
+}
