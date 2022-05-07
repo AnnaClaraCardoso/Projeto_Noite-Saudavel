@@ -10,7 +10,30 @@
 </head>
 <body>
   <div class="container">
-    
+    <main>
+      <section class="records">
+        <h1>Gravando sessão...</h1>
+
+        <form action="" method="post">
+          <label for="dormiu">Que horas você dormiu?</label>
+
+          <p>Leve em conta o tempo que você geralmente demora para adormecer.</p>  
+
+          <input type="time" name="dormiu" id="dormiu">
+
+          <label for="acordou">Que horas você acordou?</label>
+
+          <input type="time" name="acordou" id="acordou">
+
+          <select name="influenciadores" id="influenciadores" multiple>
+            <option value="temp">Temperatura</option>
+            <option value="saab">Ansiedade</option>
+            <option value="lumi">Luminosidade</option>
+            <option value="baru">Barulho</option>
+          </select>
+        </form>
+      </section>
+    </main>
   </div>
   <script src="/src/screens/components/navbar.js"></script>
   <script src="/node_modu les/chart.js/dist/chart.js"></script>
