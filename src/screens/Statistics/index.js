@@ -1,56 +1,60 @@
 // labels dos graficos
 let dates = [
-  new Date('Fri, April 01, 2022'), 
-  new Date('Sat, April 02, 2022'), 
-  new Date('Sun, April 03, 2022'), 
-  new Date('Mon, April 04, 2022'), 
-  new Date('Tue, April 05, 2022'), 
-  new Date('Wed, April 06, 2022'), 
-  new Date('Thu, April 07, 2022')
+  new Date('Fri Apr 01 2022'), 
+  new Date('Sat Apr 02 2022'), 
+  new Date('Sun Apr 03 2022'), 
+  new Date('Mon Apr 04 2022'), 
+  new Date('Tue Apr 05 2022'), 
+  new Date('Wed Apr 06 2022'), 
+  new Date('Thu Apr 07 2022')
 ];
+
+// dates.forEach((date) => {
+//   console.log(date, typeof(date))
+// })
 
 // inputs do filtro por data
 const startDateInput = document.getElementById('date-start');
 const endDateInput = document.getElementById('date-end');
 
 // Gráfico de controle de testes; não fará parte do resultado final
-let exemData = [65, 59, 75, 81, 56, 55, 40];
+// let exemData = [65, 59, 75, 81, 56, 55, 40];
 
-const exemChart = new Chart(document.getElementById('exemple').getContext('2d'), {
-  type: 'bar',
-  data: {
-    labels: dates,
-    datasets: [{
-      label: 'My First Dataset',
-      data: exemData,
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)'
-      ],
-      borderColor: [
-        'rgb(255, 99, 132)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      x: {
-        type: 'time',
-        time: {
-          unit: 'day',
-          timezone: 'America/Sao_Paulo',
-          tooltipFormat : 'E, d MMM, yyyy',
-          displayFormats: {
-            day: 'E, d MMM'
-          }
-        }
-      },
-      y: {
-        beginAtZero: true
-      }
-    }
-  },
-});
+// const exemChart = new Chart(document.getElementById('exemple').getContext('2d'), {
+//   type: 'bar',
+//   data: {
+//     labels: dates,
+//     datasets: [{
+//       label: 'My First Dataset',
+//       data: exemData,
+//       backgroundColor: [
+//         'rgba(255, 99, 132, 0.2)'
+//       ],
+//       borderColor: [
+//         'rgb(255, 99, 132)'
+//       ],
+//       borderWidth: 1
+//     }]
+//   },
+//   options: {
+//     scales: {
+//       x: {
+//         type: 'time',
+//         time: {
+//           unit: 'day',
+//           timezone: 'America/Sao_Paulo',
+//           tooltipFormat : 'E, d MMM, yyyy',
+//           displayFormats: {
+//             day: 'E, d MMM'
+//           }
+//         }
+//       },
+//       y: {
+//         beginAtZero: true
+//       }
+//     }
+//   },
+// });
 
 
 // Fazendo elementos que farão parte da página
@@ -197,24 +201,14 @@ const sleepGoalData = {
   datasets: [
     {
       label: `Horas dentro do objetivo`,
-      data: goalPrcentData,
       backgroundColor: '#3339A6',
     }, 
     {
       label: `Horas excedidas`,
-      data: overflowPercentData,
       backgroundColor: '#25D997'
     }
   ]
 };
-
-goalPrcentData.forEach((value, index) => {
-  const isOverflow = value >= 100;
-  if(isOverflow) {
-    overflowPercentData[index] = value - 100;
-    goalPrcentData[index] = 100
-  }
-});
 
 const chartSleepGoal = new Chart(chartsArr[2], {
     type: 'bar',
@@ -253,42 +247,68 @@ const chartSleepGoal = new Chart(chartsArr[2], {
   }
 );
 
+filterOverflow(goalPrcentData)
+chartSleepGoal.update();
+
+
+function filterOverflow(filterData) {
+  console.log(filterData)
+  filterData.forEach((value, index) => {
+    const isOverflow = value >= 100;
+    if(isOverflow) {
+      overflowPercentData[index] = value - 100;
+      filterData[index] = 100
+    }
+  });
+
+  console.log(overflowPercentData)
+
+  chartSleepGoal.config.data.datasets[0].data = filterData;
+}
+
 function filterData() {
 
-  // Pegando datas
-  const startValueDate = new Date(`${startDateInput.value} 00:00:00`);
-  const endValueDate = new Date(`${endDateInput.value} 00:00:00`);
+  const startValueDate = new Date(`${startDateInput.value} 00:00:00`).toString()
+  const endValueDate = new Date(`${endDateInput.value} 00:00:00`).toString()
+  
+  console.log(startValueDate, typeof(startValueDate))
+  console.log(endValueDate, typeof(endValueDate))
 
-  console.log(startValueDate);
-  console.log(endValueDate);
+  const stringDates = dates.map(date => {
+    return date.toString()
+  })
+  
+  // Pegando datas
+  const indexOfStartDate = stringDates.indexOf(startValueDate);
+  const indexOfEndDate = stringDates.indexOf(endValueDate);
+
+  // console.log(indexOfStartDate)
+  // console.log(indexOfEndDate)
 
   // Criando label com novo intervalo de datas
-  const filterDates = dates.filter(date => date >= startValueDate && date <= endValueDate);
-  exemChart.config.data.labels = filterDates;
+  const filterDates = dates.slice(indexOfStartDate, indexOfEndDate + 1);
   chartSleepDuration.config.data.labels = filterDates;
   chartSleepIntervals.config.data.labels = filterDates;
   chartSleepGoal.config.data.labels = filterDates;
   
   // modificando dados
-  const dataStartArray = dates.indexOf(filterDates[0]);
-  const dataEndArray = dates.indexOf(filterDates[filterDates.length - 1]);
-  // console.log(dataEndArray)
-
   const dataPointsArray = [
-    [...exemData], 
     [...sleepDurationData], 
     [...sleepIntervalsData], 
-    [...goalPrcentData], 
-    [...overflowPercentData]
+    [...goalPrcentData],
   ];
 
-  console.log(dataPointsArray);
-
-  dataPointsArray.forEach((dataPoints) => {
-    dataPoints.splice(dataEndArray + 1)
+  const filterDataPoints = dataPointsArray.map(dataPoint => {
+    return dataPoint.slice(indexOfStartDate, indexOfEndDate + 1)
   });
 
-  exemChart.update();
+  // console.log('filterDataPoints\n' + filterDataPoints)
+
+  chartSleepDuration.config.data.datasets[0].data = filterDataPoints[0];
+  chartSleepIntervals.config.data.datasets[0].data = filterDataPoints[1];
+  filterOverflow(filterDataPoints[2])
+  chartSleepGoal.config.data.datasets[1].data = overflowPercentData.slice(indexOfStartDate, indexOfEndDate + 1);
+
   chartSleepDuration.update();
   chartSleepIntervals.update();
   chartSleepGoal.update();
