@@ -11,18 +11,17 @@
 <body>
   <div class="container">
     <main>
+
       <section class="records">
-        <h1>Gravando sessão...</h1>
 
         <form action="" method="post">
+          <h1>Gravando sessão...</h1>
+
           <label for="dormiu">Que horas você dormiu?</label>
-
-          <p>Leve em conta o tempo que você geralmente demora para adormecer.</p>  
-
+          <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
           <input type="time" name="dormiu" id="dormiu">
 
           <label for="acordou">Que horas você acordou?</label>
-
           <input type="time" name="acordou" id="acordou">
 
           <select name="influenciadores" id="influenciadores" multiple>
@@ -31,8 +30,15 @@
             <option value="lumi">Luminosidade</option>
             <option value="baru">Barulho</option>
           </select>
+
         </form>
+
+        <section class="records-list-container">
+          <ul class="records-list">
+          </ul>
+        </section>
       </section>
+
     </main>
   </div>
   <script src="/src/screens/components/navbar.js"></script>
