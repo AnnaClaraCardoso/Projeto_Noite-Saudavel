@@ -54,26 +54,26 @@ form{
 }
 
 .criar-perfil input{
-    width: 80%;
-    height: 45px;
-    border-radius: 8px;
     background-color: rgb(244, 241, 247);
     border: 0.3px solid rgb(212, 179, 230);
     padding-left: 22px;
+    width: 80%;
 }
 
 .criar-perfil input:focus{
     outline: none;
 }
 
-.btn-group button{
+.btn-group button {
     background-color:rgb(59, 0, 94);
     border: none;
-    width: 80%;
-    height: 50px;
-    border-radius: 8px;
     color: white;
+    width: 456px;
+}
 
+.criar-perfil input, .btn-group button{
+    height: 45px;
+    border-radius: 8px;
 }
 
 .btn-group {
