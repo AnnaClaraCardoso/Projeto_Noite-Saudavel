@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/1663b56636.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+
+<body>
+    <div id="form">
+        <form action="">
+            <label for="username">Nome</label>
+            <div class="input">
+                <i class="fa-solid fa-user"></i>
+                <input id="username" name="username" placeholder="Username" type="text" />
+            </div>
+
+            <label for="Email">Email</label>
+            <div class="input">
+                <i class="fa-solid fa-envelope"></i>
+                <input id="email" name="email" placeholder="Email" type="text" />
+            </div>
+
+            <label for="Idade">Data de Nascimento</label>
+            <div class="input">
+                <i class="fa-solid fa-calendar"></i>
+                <input id="date" name="idade" placeholder="Age" type="date" />
+            </div>
+
+            <label for="">Senha</label>
+            <div class="input">
+                <i class="fa-solid fa-lock"></i>
+                <input id="password" name="senha" placeholder="Password" type="password" />
+            </div>
+
+            <label for="">Objetivos</label>
+            <div id="botoes">
+                <div class="content">
+                    <div class="botao">
+                      <p>Desempenho</p>
+                      <p>Concentração</p>
+                      <p>Diminuir Cansaço</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="botao">
+                      <p>Desempenho</p>
+                      <p>oncentração</p>
+                      <p>Diminuir Cansaço</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="btn">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
