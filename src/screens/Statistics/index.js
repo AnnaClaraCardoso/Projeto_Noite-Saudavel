@@ -9,52 +9,9 @@ let dates = [
   new Date('Thu Apr 07 2022')
 ];
 
-// dates.forEach((date) => {
-//   console.log(date, typeof(date))
-// })
-
 // inputs do filtro por data
 const startDateInput = document.getElementById('date-start');
 const endDateInput = document.getElementById('date-end');
-
-// Gráfico de controle de testes; não fará parte do resultado final
-// let exemData = [65, 59, 75, 81, 56, 55, 40];
-
-// const exemChart = new Chart(document.getElementById('exemple').getContext('2d'), {
-//   type: 'bar',
-//   data: {
-//     labels: dates,
-//     datasets: [{
-//       label: 'My First Dataset',
-//       data: exemData,
-//       backgroundColor: [
-//         'rgba(255, 99, 132, 0.2)'
-//       ],
-//       borderColor: [
-//         'rgb(255, 99, 132)'
-//       ],
-//       borderWidth: 1
-//     }]
-//   },
-//   options: {
-//     scales: {
-//       x: {
-//         type: 'time',
-//         time: {
-//           unit: 'day',
-//           timezone: 'America/Sao_Paulo',
-//           tooltipFormat : 'E, d MMM, yyyy',
-//           displayFormats: {
-//             day: 'E, d MMM'
-//           }
-//         }
-//       },
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   },
-// });
 
 
 // Fazendo elementos que farão parte da página
@@ -64,10 +21,6 @@ const chartsArr = [];
 canvasIDs.forEach(chartID => {
   chartsArr.push(document.getElementById(chartID).getContext('2d'));
 });
-
-// chartsArr.forEach(canvaContexts => {
-//   console.log(canvaContexts)
-// })
 
 let sleepDurationData = [7, 5, 8, 8.5, 10, 11, 3]
 
