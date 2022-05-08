@@ -4,22 +4,27 @@
 
 @import url('/src/screens/components/navbar.css');
 
-body{
-background: linear-gradient(
-    rgb(33, 1, 48) 0%, 
-    rgb(62, 3, 85) 35%, 
-    rgb(185, 125, 235) 100%
-  );
+body {
+    background: linear-gradient(rgb(33, 1, 48) 0%,
+            rgb(62, 3, 85) 35%,
+            rgb(185, 125, 235) 100%);
 }
 
-aside, .col-2 {
+aside,
+.col-2 {
     width: 50%;
 }
+
 .col-2 .criar-perfil {
     font-weight: 100;
 }
 
-main{
+aside {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+main {
     display: flex;
     margin-top: 50px;
     justify-content: center;
@@ -27,53 +32,85 @@ main{
     margin-top: 3em;
 }
 
-h2{
+h2 {
     font-weight: 500;
-    font-size: 56px;
+    font-size: 45px;
     line-height: 1em;
     padding-bottom: 20px;
+    color: rgb(189, 152, 211);
+    margin-top: 25px;
 
 }
 
-span{
+span {
     color: rgb(189, 152, 211);
 }
 
-p{
+p {
     line-height: 20px;
     max-width: 500px;
     font-family: 'Poppins', sans-serif;
 }
 
 
-form{
+form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     text-align: center;
+
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(31, 1, 51, 0.325);
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
-.criar-perfil input{
+#register {
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.criar-perfil input {
+    width: 80%;
+    height: 45px;
+    border-radius: 8px;
     background-color: rgb(244, 241, 247);
     border: 0.3px solid rgb(212, 179, 230);
     padding-left: 22px;
-    width: 80%;
 }
 
-.criar-perfil input:focus{
+.iconsLogin {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.google {
+    width: 40px;
+    height: auto;
+
+}
+
+.github {
+    width: 40px;
+    height: auto;
+
+}
+
+.criar-perfil input:focus {
     outline: none;
 }
 
 .btn-group button {
-    background-color:rgb(59, 0, 94);
+    background-color: rgb(59, 0, 94);
     border: none;
-    color: white;
-    width: 456px;
-}
-
-.criar-perfil input, .btn-group button{
-    height: 45px;
+    width: 80%;
+    height: 50px;
     border-radius: 8px;
+    color: white;
+
 }
 
 .btn-group {
@@ -86,20 +123,24 @@ form{
     gap: 12px;
 }
 
-.btn-group span{
+.btn-group span {
     font-weight: 500;
     color: var(--dark-purple);
 }
 
-.col-2 .criar-perfil .cadastrar{
-   text-align: center;
+.col-2 .criar-perfil .cadastrar {
+    text-align: center;
 }
 
-.nome, .cpf , .email, .senha, .iestadual{
+.nome,
+.cpf,
+.email,
+.senha,
+.iestadual {
     margin-top: 15px;
 }
 
-.nome{
+.nome {
     margin-top: 35px;
 }
 
