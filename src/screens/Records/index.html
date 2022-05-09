@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registros</title>
+
+  <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
@@ -14,25 +16,53 @@
 
       <section class="records">
 
-        <form action="" method="post">
-          <h1>Gravando sessão...</h1>
+        <div class="modal modal-fade show">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Gravando sessão</h2>
+                <button class="close-modal-btn" onclick="closeModal()">
+                  <img src="./images/xmark-solid.svg" alt="">
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="" method="post">
 
-          <label for="dormiu">Que horas você dormiu?</label>
-          <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
-          <input type="time" name="dormiu" id="dormiu">
+                  <div class="hours-enters">
+                    <label for="dormiu">Que horas você dormiu?</label>
+                    <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
+                    <input type="time" name="dormiu" id="dormiu">
+          
+                    <label for="acordou">Que horas você acordou?</label>
+                    <input type="time" name="acordou" id="acordou">
+                  </div>
 
-          <label for="acordou">Que horas você acordou?</label>
-          <input type="time" name="acordou" id="acordou">
+                  <div class="influenciadores">
+                    <div class="input">
+                      <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
+                      <div>
+                        <i class="fas fa-tags"></i>
+                        <input type="text" name="" placeholder="Entre com alguns influenciadores..." id="tags-input">
+                      </div>
+                    </div>
+                    <div class="tag-list">
 
-          <select name="influenciadores" id="influenciadores" multiple>
-            <option value="temp">Temperatura</option>
-            <option value="saab">Ansiedade</option>
-            <option value="lumi">Luminosidade</option>
-            <option value="baru">Barulho</option>
-          </select>
-
-        </form>
-
+                    </div>
+                  </div>
+        
+                  <!-- <select name="influenciadores" id="influenciadores" multiple>
+                    <option value="temp">Temperatura</option>
+                    <option value="saab">Ansiedade</option>
+                    <option value="lumi">Luminosidade</option>
+                    <option value="baru">Barulho</option>
+                  </select> -->
+        
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  
+        
         <section class="records-list-container">
           <ul class="records-list">
           </ul>
