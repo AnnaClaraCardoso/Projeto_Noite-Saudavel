@@ -8,34 +8,17 @@ function closeModal() {
   const eventModalClose = modal.style.display = 'none'
 }
 
+const tagsInput = document.querySelector('#tags-input');
 
-let tags = []
-
-function addTag(e) {
-  let code = (e.keyCode ? e.keyCode : e.which);
-  if (code != 13) {
-    return;
+// initialize Tagify on the above input node reference
+const tagify = new Tagify(tagsInput, {
+  whitelist : ['Luminosidade', 'Temperatura', 'Ansiedade', 'Barulho'],
+  dropdown : {
+      classname     : "color-blue",
+      enabled       : 0,              // show the dropdown immediately on focus
+      maxItems      : 5,
+      position      : "text",         // place the dropdown near the typed text
+      closeOnSelect : false,          // keep the dropdown open after selecting a suggestion
+      highlightFirst: true
   }
-  
-  let tag = e.target.value.trim();
-  if(tag.length < 1 || tags.includes(tag)) {
-    e.target.value = ''
-    return
-  }
-
-  let index = tags.push(tag);
-
-  let tagItem = document.createElement('div');
-  tagItem.classList.add('tag');
-  tagItem.innerHTML = `
-    <span class="delete-btn" onclick="deleteTag(this, ${tag})">
-      &times
-    </span>
-    span class="tag-name">${tag}</span>
-  `;
-
-  document.querySelector('.influenciadores .tag-list').appendChild(tagItem);
-  e.target.value = ''
-}
-
-document.querySelector('.influenciadores .input div input').addEventListener('keyup', addTag);
+})
