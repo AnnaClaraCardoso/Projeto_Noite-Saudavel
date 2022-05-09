@@ -22,14 +22,19 @@ aside,
 aside {
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 50%;
 }
 
+aside img {
+    width: 100%;
+}
 main {
     display: flex;
     margin-top: 50px;
     justify-content: center;
     margin: 0 auto;
     margin-top: 3em;
+    gap: 100px;
 }
 
 h2 {
@@ -58,7 +63,6 @@ form {
     flex-direction: column;
     gap: 15px;
     text-align: center;
-
     border-radius: 20px;
     box-shadow: 5px 5px 5px 5px rgba(31, 1, 51, 0.325);
     margin-bottom: 25px;
