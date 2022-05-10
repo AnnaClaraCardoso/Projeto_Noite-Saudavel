@@ -143,6 +143,7 @@ form input {
   flex-direction: column;
   gap: 10px;
 }
+
 .hours-enters div input {
-  max-width: 452px;
+  width: 93%;
 }
