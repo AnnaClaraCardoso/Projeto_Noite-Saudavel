@@ -38,10 +38,11 @@
   width: auto;
   margin: 0.5rem;
   pointer-events: none;
+  top: 30%;
 }
 
 .modal-content {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   width: 25%;
@@ -52,11 +53,13 @@
   border: 1px solid rgba(0,0,0,.2);
   border-radius: 0.3rem;
   outline: 0;
+  top: 50%;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
+  
 }
 
 .modal-body input {
@@ -73,9 +76,8 @@
   top: 0;
 }
 
-.close-modal-btn img {
-  width: 100%;
-  height: 100%;
+.close-modal-btn i {
+  font-size: 25px;
 }
 
 .submit-sub-btn {
@@ -107,10 +109,6 @@ form input {
   left: 14px;
 }
 
-.influenciadores .input div input {
-  text-indent: 25px;
-}
-
 .influenciadores .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -133,9 +131,18 @@ form input {
 
 .tagify{    
   width: 100%;
-  max-width: 700px;
+  max-width: 100%;
 }
 
 .tagify__tag {
   background-color: #e5e5e5;
+}
+
+.hours-enters{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hours-enters div input {
+  max-width: 452px;
 }
