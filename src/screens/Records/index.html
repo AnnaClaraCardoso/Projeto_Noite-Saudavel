@@ -10,9 +10,11 @@
 
   <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="./style.css">
   <script src="https://unpkg.com/@yaireo/tagify"></script>
   <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
   <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+ 
 </head>
 <body>
   <div class="container">
@@ -26,33 +28,38 @@
               <div class="modal-header">
                 <h2>Gravando sessão</h2>
                 <button class="close-modal-btn" onclick="closeModal()">
-                  <img src="./images/xmark-solid.svg" alt="">
+                  <i class="fa-solid fa-xmark"></i>
                 </button>
               </div>
               <div class="modal-body">
                 <form action="" method="post">
 
                   <div class="hours-enters">
-                    <label for="dormiu">Que horas você dormiu?</label>
-                    <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
-                    <input type="time" name="dormiu" id="dormiu">
-          
-                    <label for="acordou">Que horas você acordou?</label>
-                    <input type="time" name="acordou" id="acordou">
-                  </div>
 
-                  <div class="influenciadores">
-                    <div class="input">
-                      <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
-                      <div>
-                        <i class="fas fa-tags"></i>
-                        <input type="text" name="" placeholder="Entre com alguns influenciadores..." id="tags-input">
+                    <div class="input_horas_dormiu">
+                      <label for="dormiu">Que horas você dormiu?</label>
+                      <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
+                      <input type="time" name="dormiu" id="dormiu">
+                    </div>
+                    <div class="input_horas_acordou">
+                      <label for="acordou">Que horas você acordou?</label>
+                      <input type="time" name="acordou" id="acordou">
+                    </div>
+                    <div class="influenciadores">
+                      <div class="input">
+                        <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
+                        <div>
+                          <!-- <i class="fas fa-tags"></i> -->
+                          <input type="text" name="" id="tags-input">
+                        </div>
+                      </div>
+                      <div class="tag-list">
+  
                       </div>
                     </div>
-                    <div class="tag-list">
-
-                    </div>
                   </div>
+
+                  
                 </form>
               </div>
             </div>
