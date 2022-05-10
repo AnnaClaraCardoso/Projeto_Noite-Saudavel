@@ -10,25 +10,33 @@ body {
             rgb(185, 125, 235) 100%);
 }
 
+.container {
+    width: 100%;
+    margin-top: 0;
+}
 aside,
 .col-2 {
-    width: 50%;
+    width: 100%;
 }
 
 .col-2 .criar-perfil {
     font-weight: 100;
+    width: 100%;
 }
 
 aside {
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 50%;
+    width: 100%;
 }
 
 aside img {
     width: 100%;
 }
+
 main {
+    width: 60%;
+    align-items: center;
     display: flex;
     margin-top: 50px;
     justify-content: center;
@@ -39,7 +47,7 @@ main {
 
 h2 {
     font-weight: 500;
-    font-size: 45px;
+    font-size: 35px;
     line-height: 1em;
     padding-bottom: 20px;
     color: rgb(189, 152, 211);
@@ -84,28 +92,10 @@ form {
     padding-left: 22px;
 }
 
-.iconsLogin {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10%;
-}
-
-.google {
-    width: 40px;
-    height: auto;
-
-}
-
-.github {
-    width: 40px;
-    height: auto;
-
-}
-
 .criar-perfil input:focus {
     outline: none;
 }
+
 
 .btn-group button {
     background-color: rgb(59, 0, 94);
@@ -159,4 +149,17 @@ form {
     background: var(--dark-purple);
     color: white;
     border: solid 2px var(--dark-purple);
+}
+
+.iconsLogin {
+    font-size: 30px;
+    align-items: center;
+}
+
+.iconsLogin .fa-github {
+    color: black;
+}
+
+.iconsLogin .fa-google {
+    color: rgb(196, 174, 206);
 }
