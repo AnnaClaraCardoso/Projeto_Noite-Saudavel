@@ -1,126 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="style.css">
+@import '/src/screens/theme/theme.css';
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registros</title>
+@import url('/src/screens/theme/body.css');
 
-  <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
+@import url('/src/screens/components/navbar.css');
 
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://unpkg.com/@yaireo/tagify"></script>
-  <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-  <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
- 
-</head>
-<body>
-  <div class="container">
-    <main>
-      <section class="records">
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  /* display: none; */
+}
 
-        <div class="modal modal-fade show">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Gravando sessão</h2>
-                <button class="close-modal-btn" onclick="closeModal()">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form action="" method="post">
+.modal-fade {
+  transition: opacity .15s linear;
+  background-color: rgba(0,0,0,.2);
+  width: 100%;
+}
 
-                  <div class="hours-enters">
+.modal.show .modal-dialog {
+  transform: none;
+  display: flex;
+  justify-content: center;
+}
 
-                    <div class="input_horas_dormiu">
-                      <label for="dormiu">Que horas você dormiu?</label>
-                      <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
-                      <input type="time" name="dormiu" id="dormiu">
-                    </div>
-                    <div class="input_horas_acordou">
-                      <label for="acordou">Que horas você acordou?</label>
-                      <input type="time" name="acordou" id="acordou">
-                    </div>
-                    <div class="influenciadores">
-                      <div class="input">
-                        <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
-                        <div>
-                          <!-- <i class="fas fa-tags"></i> -->
-                          <input type="text" name="" id="tags-input">
-                        </div>
-                      </div>
-                      <div class="tag-list">
-  
-                      </div>
-                    </div>
-                  </div>
+.modal.fade .modal-dialog {
+  transition: transform .3s ease-out;
+  transform: translate(0,-50px);
+}
 
-                  
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>  
-        
-        <section class="records-list-container">
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+  top: 30%;
+}
 
-          <section class="last-record">
-            <table class="table-ultima">
-              <div class="button-h1">
-                <h1 class="h1-u">Ultima sessão de sono</h1>
-                <input class="button-new" type="button" value="Adicionar nova seção">
-              </div>
-              
-              <tr class="cabeçalho">
-                <td>Hora em que dormiu</td>
-                <td>Hora que acordou</td>
-                <td>Tempo de sono</td>
-                <td>Fator influenciador</td>
-              </tr>
-              <tr class="dados">
-                <td>00:00</td>
-                <td>00:00</td>
-                <td>0h00min</td>
-                <td class="fator">Exemplo</td>
-              </tr>
-            </table>
-          </section>
+.modal-content {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 2em;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  top: 50%;
+}
 
-          <section class="records-list record">
-            <ul>
-              <li>
-                <table class="table-ultima">
-                  <div class="button-h1">
-                    <h1 class="h1-d">Dia mês, ano</h1>
-                    
-                  </div>
-                  
-                  <tr class="cabeçalho-list">
-                    <td>Hora em que dormiu</td>
-                    <td>Hora que acordou</td>
-                    <td>Tempo de sono</td>
-                    <td>Fator influenciador</td>
-                  </tr>
-                  <tr class="dados">
-                    <td>00:00</td>
-                    <td>00:00</td>
-                    <td>0h00min</td>
-                    <td class="fator">Exemplo</td>
-                  </tr>
-                </table>
-             </li>
-            </ul>
-          </section>
-        </section>
-      </section>
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
 
-    </main>
-  </div>
-  <script src="/src/screens/components/navbar.js"></script>
-  <script src="/node_modu les/chart.js/dist/chart.js"></script>
-  <script src="./index.js"></script>
-</body>
-</html>
+.modal-body input {
+  width: 100%;
+}
+
+.close-modal-btn {
+  position: relative;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  border: none;
+  right: 0;
+  top: 0;
+}
+
+.close-modal-btn i {
+  font-size: 25px;
+}
+
+.submit-sub-btn {
+  margin-top: 1em;
+  padding: 0.4em 2em;
+  background-color: var(--purple);
+  font-size: 14px;
+  line-height: 2em;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+form input {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.influenciadores .input div {
+  position: relative;
+  display: flex;
+}
+
+.influenciadores .input div i.fas {	
+  position: absolute;
+  bottom: 30%;
+  left: 14px;
+}
+
+.influenciadores .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.influenciadores .tag-list .tag {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: solid 1px var(--text-light-purple);
+}
+
+.influenciadores .tag-list .tag .delete-btn {
+  display: inline-block;
+  margin: 0 2px;
+  width: 8px;
+  text-align: center;
+  color: var(--text-light-purple);
+}
+
+.tagify{    
+  width: 100%;
+  max-width: 100%;
+}
+
+.tagify__tag {
+  background-color: #e5e5e5;
+}
+
+.hours-enters{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hours-enters div input {
+  width: 93%;
+}
