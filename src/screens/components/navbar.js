@@ -10,7 +10,7 @@ const linkRecords = document.createElement('a');
 const linkIndex = document.createElement('a');
 const logOutBtn = document.createElement('button');
 
-linkIndex.setAttribute('href', '/src/screens/Home/index.html');
+linkIndex.setAttribute('href', 'index.html');
 linkRecords.setAttribute('href', '/src/screens/Records/index.html');
 linkStatistics.setAttribute('href', '/src/screens/Statistics/index.html');
 
