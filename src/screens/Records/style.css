@@ -4,6 +4,10 @@
 
 @import url('/src/screens/components/navbar.css');
 
+.container {
+  margin: 0;
+}
+
 .modal {
   position: fixed;
   top: 0;
