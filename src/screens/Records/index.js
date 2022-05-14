@@ -1,6 +1,5 @@
 // Controle do modal de adicionar registro
 const modal = document.querySelector('.modal');
-let num;
 
 function openModal() {
   const newModal = modal.style.display = "block";
