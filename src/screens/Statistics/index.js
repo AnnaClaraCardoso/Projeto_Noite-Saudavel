@@ -1,6 +1,3 @@
-import Chart from "/node_modules/chart.js/dist/chart.js";
-import 'chartjs-adapter-date-fns';
-
 // labels dos graficos
 let dates = [
   new Date("Fri Apr 01 2022"),
