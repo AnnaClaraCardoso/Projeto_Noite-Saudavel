@@ -1,88 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="style.css">
+// Controle do modal de adicionar registro
+const modal = document.querySelector('.modal');
+let num;
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registros</title>
+function openModal() {
+  const newModal = modal.style.display = "block";
+}
 
-  <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
+function closeModal() {
+  const eventModalClose = modal.style.display = 'none'
+}
 
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://unpkg.com/@yaireo/tagify"></script>
-  <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
-  <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
- 
-</head>
-<body>
-  <div class="container">
-    <main>
-      <section class="records">
 
-        <div class="modal modal-fade show">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h2>Gravando sessão</h2>
-                <button class="close-modal-btn" onclick="closeModal()">
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
+// Instanciando campo de tags (influenciadores)
+const tagsInput = document.querySelector('#input-sleepFactors');
+const tagify = new Tagify(tagsInput, {
+  whitelist : ['Luminosidade', 'Temperatura', 'Ansiedade', 'Barulho'],
+  dropdown : {
+      classname     : "color-blue",
+      enabled       : 0,              // show the dropdown immediately on focus
+      maxItems      : 5,
+      position      : "text",         // place the dropdown near the typed text
+      closeOnSelect : false,          // keep the dropdown open after selecting a suggestion
+      highlightFirst: true
+  }
+})
 
-                  <div class="hours-enters">
+// Função para pegar o valor decimal da hora
+function pickHourValues(hour) {
+  const hours = Number(hour.split(':')[0]);
+  const minutes = Number(hour.split(':')[1]);
+  return hours + (minutes / 60);
+}
 
-                    <div class="sleepAt">
-                      <label for="dormiu">Que horas você dormiu?</label>
-                      <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
-                      <input type="time" name="dormiu" id="input-sleepAt">
-                    </div>
-                    <div class="wakeUpAt">
-                      <label for="acordou">Que horas você acordou?</label>
-                      <input type="time" name="acordou" id="input-wakeUpAt">
-                    </div>
-                    <div class="sleepFactors">
-                      <div class="input">
-                        <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
-                        <div>
-                          <!-- <i class="fas fa-tags"></i> -->
-                          <input type="text" name="" id="input-sleepFactors">
-                        </div>
-                      </div>
-                      <div class="tag-list">
+// Função para montar registros com os horários entrados no form
+function appendRecord() {
+  const sleepAt = document.querySelector('#input-sleepAt').value;
+  const wakeUpAt = document.querySelector('#input-wakeUpAt').value;
+  const sleepFactors = [...tagify.value.map(factor => factor.value)];
+  // console.log(sleepAt)
+  // console.log(wakeUpAt)
+
+  const sleepAtHourValue = pickHourValues(sleepAt);
+  const wakeUpAtHourValue = pickHourValues(wakeUpAt);
+
+  if (sleepAtHourValue > wakeUpAtHourValue) {
+    sleepDuration = (wakeUpAtHourValue+12) - (sleepAtHourValue-12);
+  } else {
+    sleepDuration = wakeUpAtHourValue - sleepAtHourValue;
+  }
+  // console.log(sleepDuration)
+
+  hours = Math.abs(sleepDuration)
+  minutes = (sleepDuration - Math.floor(sleepDuration))*60;
+  // console.log(minutes)
+
+  const date = new Date()
+  let month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"][date.getMonth()];
   
-                      </div>
-                    </div>
-                    <button type="button" class="submit-sub-btn" onclick="appendRecord()" >Salvar</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>  
-        
-        <section class="records-list-container">
+  recordHTML = `
+    <table class="table-ultima">
+      <!--
+      <div class="button-h1">
+        <h1 class="h1-d">${date.getDate()} de ${month}, ${date.getFullYear()}</h1>
+      </div>
+      -->
+      <tr class="cabeçalho-list">
+        <td>Hora em que dormiu</td>
+        <td>Hora que acordou</td>
+        <td>Tempo de sono</td>
+        <td>Fator influenciador</td>
+      </tr>
+      <tr class="dados">
+        <td>${sleepAt}</td>
+        <td>${wakeUpAt}</td>
+        <td>${Math.trunc(hours).toString()}h${Math.trunc(minutes).toString()}min</td>
+        <td class="fator">
+          <ul>
+            ${sleepFactors.map(factor => `<li>${factor}</li>`).join('')}
+          </ul>
+        </td>
+      </tr>
+    </table>
+  `;	
 
-          <section class="last-record">
-            <div class="button-h1">
-              <h1 class="h1-u">Ultima sessão de sono</h1>
-              <input class="button-new" onclick="openModal()" type="button" value="Adicionar nova seção">
-            </div>
-          </section>
-
-          <section class="records-list record">
-            <ul>
-            </ul>
-          </section>
-        </section>
-      </section>
-
-    </main>
-  </div>
-  <script src="/src/screens/components/navbar.js"></script>
-  <script src="./index.js"></script>
-</body>
-</html>
+  document.querySelector('.last-record').insertAdjacentHTML('beforeend', recordHTML);
+}
