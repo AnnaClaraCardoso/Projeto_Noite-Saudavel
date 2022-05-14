@@ -30,10 +30,12 @@ function pickHourValues(hour) {
   return hours + (minutes / 60);
 }
 
-function appendRegister() {
+function appendRecord() {
   const sleepAt = document.querySelector('#input-sleepAt').value;
   const wakeUpAt = document.querySelector('#input-wakeUpAt').value;
   const sleepFactors = [...tagify.value.map(factor => factor.value)];
+  // console.log(sleepAt)
+  // console.log(wakeUpAt)
 
   const sleepAtHourValue = pickHourValues(sleepAt);
   const wakeUpAtHourValue = pickHourValues(wakeUpAt);
@@ -44,18 +46,20 @@ function appendRegister() {
   } else {
     sleepDuration = wakeUpAtHourValue - sleepAtHourValue;
   }
-
   // console.log(sleepDuration)
-  hours = sleepDuration.toString().split('.')[0]
-  minutes = (((Number(sleepDuration.toString().split('.')[1])) * 60)/10);
 
-  console.log(`${hours}:${minutes}`)
+  hours = Math.abs(sleepDuration)
+  minutes = (sleepDuration - Math.floor(sleepDuration))*60;
+  // console.log(minutes)
 
-  registerHTML = `
+  const date = new Date()
+  let month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"][date.getMonth()];
+  
+  recordHTML = `
     <li>
       <table class="table-ultima">
         <div class="button-h1">
-          <h1 class="h1-d">Dia mês, ano</h1>
+          <h1 class="h1-d">${date.getDate()} de ${month}, ${date.getFullYear()}</h1>
         </div>
         <tr class="cabeçalho-list">
           <td>Hora em que dormiu</td>
@@ -66,14 +70,16 @@ function appendRegister() {
         <tr class="dados">
           <td>${sleepAt}</td>
           <td>${wakeUpAt}</td>
-          <td>${hours}:${minutes}</td>
-          <td class="fator">Exemplo</td>
+          <td>${Math.trunc(hours).toString()}h${Math.trunc(minutes).toString()}min</td>
+          <td class="fator">
+            <ul>
+              ${sleepFactors.map(factor => `<li>${factor}</li>`).join('')}
+            </ul>
+          </td>
         </tr>
       </table>
     </li>
   `;	
 
-  console.log(sleepAt)
-  console.log(wakeUpAt)
-  console.log(sleepFactors)
+  document.querySelector('.records-list>ul').insertAdjacentHTML('beforeend', recordHTML);
 }
