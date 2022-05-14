@@ -10,7 +10,7 @@
 
   <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="./src/screens/Records/styles/style.css">
+  <link rel="stylesheet" href="./style.css">
   <script src="https://unpkg.com/@yaireo/tagify"></script>
   <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
   <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
@@ -31,34 +31,33 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="" method="post">
+                <form>
 
                   <div class="hours-enters">
 
-                    <div class="input_horas_dormiu">
+                    <div class="sleepAt">
                       <label for="dormiu">Que horas você dormiu?</label>
                       <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
-                      <input type="time" name="dormiu" id="dormiu">
+                      <input type="time" name="dormiu" id="input-sleepAt">
                     </div>
-                    <div class="input_horas_acordou">
+                    <div class="wakeUpAt">
                       <label for="acordou">Que horas você acordou?</label>
-                      <input type="time" name="acordou" id="acordou">
+                      <input type="time" name="acordou" id="input-wakeUpAt">
                     </div>
-                    <div class="influenciadores">
+                    <div class="sleepFactors">
                       <div class="input">
                         <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
                         <div>
                           <!-- <i class="fas fa-tags"></i> -->
-                          <input type="text" name="" id="tags-input">
+                          <input type="text" name="" id="input-sleepFactors">
                         </div>
                       </div>
                       <div class="tag-list">
   
                       </div>
                     </div>
+                    <button type="button" onclick="appendRegister()" >Salvar</button>
                   </div>
-
-                  
                 </form>
               </div>
             </div>
@@ -81,9 +80,9 @@
                 <td>Fator influenciador</td>
               </tr>
               <tr class="dados">
-                <td>00:00</td>
-                <td>00:00</td>
-                <td>0h00min</td>
+                <td>21:20</td>
+                <td>06:30</td>
+                <td>9h10min</td>
                 <td class="fator">Exemplo</td>
               </tr>
             </table>
@@ -91,7 +90,7 @@
 
           <section class="records-list record">
             <ul>
-              <li>
+              <!-- <li>
                 <table class="table-ultima">
                   <div class="button-h1">
                     <h1 class="h1-d">Dia mês, ano</h1>
@@ -111,7 +110,7 @@
                     <td class="fator">Exemplo</td>
                   </tr>
                 </table>
-             </li>
+             </li> -->
             </ul>
           </section>
         </section>
@@ -120,7 +119,6 @@
     </main>
   </div>
   <script src="/src/screens/components/navbar.js"></script>
-  <script src="/node_modu les/chart.js/dist/chart.js"></script>
   <script src="./index.js"></script>
 </body>
 </html>
