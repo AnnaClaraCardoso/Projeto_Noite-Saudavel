@@ -146,3 +146,39 @@ form input {
 .hours-enters div input {
   width: 93%;
 }
+
+.records-list-container {
+  margin: 1%;
+  padding: 1%;
+}
+
+.table-ultima {
+  width: 80%;
+  height: 45px;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: rgb(244, 241, 247);
+  border: 0.3px solid rgb(212, 179, 230);
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.table-ultima .fator {
+  border-radius: 15px;
+  background-color: rgb(212, 179, 230);
+  border: 1px solid rgb(212, 179, 230);
+}
+
+.button-h1 {
+  margin-top: 10px;
+  margin: 10px;
+}
+
+.button-new {
+  border: 1px solid rgb(212, 179, 230);
+  padding: 2px;
+  background-color: rgb(212, 179, 230) ;
+  width: 15%;
+  border-radius: 5px;
+}
