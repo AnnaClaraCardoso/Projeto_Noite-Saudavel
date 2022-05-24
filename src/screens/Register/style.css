@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=Poppins:wght@600&display=swap');
 
+@import url('/src/screens/theme/theme.css');
+
+@import url('/src/screens/theme/body.css');
+
+@import url('/src/screens/components/navbar.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -31,15 +37,29 @@ body {
 .input {
     min-width: 280px;
     border-radius: 22px;
-    border: 2px rgb(189, 152, 211) solid;
+    border: 1px rgb(189, 152, 211) solid;
     padding: 5px;
     margin: 0px 0px 12px -5px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23815A8C" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+  }
 
 .input i {
     font-size: 1.2em;
     padding: 5px;
 
+}
+
+#colunas {
+    padding-bottom: 12px;
 }
 
 .input input {
