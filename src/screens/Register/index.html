@@ -11,55 +11,62 @@
 </head>
 
 <body>
-        <div id="form">
-            <form action="">
-                <label for="username">Nome</label>
-                <div class="input">
-                    <i class="fa-solid fa-user"></i>
-                    <input id="username" name="username" placeholder="Username" type="text" />
-                </div>
+    <div id="form">
+        <form>
+            <label for="username">Nome</label>
+            <div class="input">
+                <i class="fa-solid fa-user"></i>
+                <input id="username" name="username" placeholder="Username" type="text" />
+            </div>
 
-                <label for="Email">Email</label>
-                <div class="input">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input id="email" name="email" placeholder="Email" type="text" />
-                </div>
+            <label for="Email">Email</label>
+            <div class="input">
+                <i class="fa-solid fa-envelope"></i>
+                <input id="email" name="email" placeholder="Email" type="text" />
+            </div>
 
-                <label for="Idade">Data de Nascimento</label>
-                <div class="input">
-                    <i class="fa-solid fa-calendar"></i>
-                    <input id="date" name="idade" placeholder="Age" type="date" />
-                </div>
+            <label for="Idade">Data de Nascimento</label>
+            <div class="input">
+                <i class="fa-solid fa-calendar"></i>
+                <input id="date" name="idade" placeholder="Age" type="date" />
+            </div>
 
-                <label for="">Senha</label>
-                <div class="input">
-                    <i class="fa-solid fa-lock"></i>
-                    <input id="password" name="senha" placeholder="Password" type="password" />
-                </div>
+            <label for="">Senha</label>
+            <div class="input">
+                <i class="fa-solid fa-lock"></i>
+                <input id="password" name="senha" placeholder="Password" type="password" />
+            </div>
 
-                <label for="">Objetivos</label>
-                <div id="colunas">
-                    <div class="content">
-                        <div class="botao">
-                            <p>Desempenho</p>
-                            <p>Concentração</p>
-                            <p>Diminuir Cansaço</p>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="botao">
-                            <p>Desempenho</p>
-                            <p>Concentração</p>
-                            <p>Diminuir Cansaço</p>
-                        </div>
+            <label for="">Objetivos</label>
+            <div id="colunas">
+                <div class="content">
+                    <div class="botao">
+                        <p>Desempenho</p>
+                        <p>Concentração</p>
+                        <p>Diminuir Cansaço</p>
                     </div>
                 </div>
-
-                <div id="btn">
-                    <button type="submit">Cadastrar</button>
+                <div class="content">
+                    <div class="botao">
+                        <p>Desempenho</p>
+                        <p>Concentração</p>
+                        <p>Diminuir Cansaço</p>
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+
+            <label for="objetivo-horas">Quantas horas você deseja dormir por noite?</label>
+            <div class="input">
+                <i class="fa-solid fa-snooze"></i>
+                <input id="objetivo-horas" name="horas-objetivo" placeholder="Horas de sono" type="number" />
+            </div>
+
+            <div id="btn">
+                <button>Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/src/screens/components/navbar.js"></script>  
 </body>
-
 </html>
