@@ -1,86 +1,188 @@
-// Controle do modal de adicionar registro
-const modal = document.querySelector('.modal');
+@import '/src/screens/theme/theme.css';
 
-function openModal() {
-  const newModal = modal.style.display = "block";
+@import url('/src/screens/theme/body.css');
+
+@import url('/src/screens/components/navbar.css');
+
+.container {
+  margin: 0;
 }
 
-function closeModal() {
-  const eventModalClose = modal.style.display = 'none'
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  /* display: none; */
 }
 
-
-// Instanciando campo de tags (influenciadores)
-const tagsInput = document.querySelector('#input-sleepFactors');
-const tagify = new Tagify(tagsInput, {
-  whitelist : ['Luminosidade', 'Temperatura', 'Ansiedade', 'Barulho'],
-  dropdown : {
-      classname     : "color-blue",
-      enabled       : 0,              // show the dropdown immediately on focus
-      maxItems      : 5,
-      position      : "text",         // place the dropdown near the typed text
-      closeOnSelect : false,          // keep the dropdown open after selecting a suggestion
-      highlightFirst: true
-  }
-})
-
-// Função para pegar o valor decimal da hora
-function pickHourValues(hour) {
-  const hours = Number(hour.split(':')[0]);
-  const minutes = Number(hour.split(':')[1]);
-  return hours + (minutes / 60);
+.modal-fade {
+  transition: opacity .15s linear;
+  background-color: rgba(0,0,0,.2);
+  width: 100%;
 }
 
-// Função para montar registros com os horários entrados no form
-function appendRecord() {
-  const sleepAt = document.querySelector('#input-sleepAt').value;
-  const wakeUpAt = document.querySelector('#input-wakeUpAt').value;
-  const sleepFactors = [...tagify.value.map(factor => factor.value)];
-  // console.log(sleepAt)
-  // console.log(wakeUpAt)
+.modal.show .modal-dialog {
+  transform: none;
+  display: flex;
+  justify-content: center;
+}
 
-  const sleepAtHourValue = pickHourValues(sleepAt);
-  const wakeUpAtHourValue = pickHourValues(wakeUpAt);
+.modal.fade .modal-dialog {
+  transition: transform .3s ease-out;
+  transform: translate(0,-50px);
+}
 
-  if (sleepAtHourValue > wakeUpAtHourValue) {
-    sleepDuration = (wakeUpAtHourValue+12) - (sleepAtHourValue-12);
-  } else {
-    sleepDuration = wakeUpAtHourValue - sleepAtHourValue;
-  }
-  // console.log(sleepDuration)
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+  top: 30%;
+}
 
-  hours = Math.abs(sleepDuration)
-  minutes = (sleepDuration - Math.floor(sleepDuration))*60;
-  // console.log(minutes)
+.modal-content {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 2em;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  top: 50%;
+}
 
-  const date = new Date()
-  let month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"][date.getMonth()];
-  
-  recordHTML = `
-    <table class="table-ultima">
-      <!--
-      <div class="button-h1">
-        <h1 class="h1-d">${date.getDate()} de ${month}, ${date.getFullYear()}</h1>
-      </div>
-      -->
-      <tr class="cabeçalho-list">
-        <td>Hora em que dormiu</td>
-        <td>Hora que acordou</td>
-        <td>Tempo de sono</td>
-        <td>Fator influenciador</td>
-      </tr>
-      <tr class="dados">
-        <td>${sleepAt}</td>
-        <td>${wakeUpAt}</td>
-        <td>${Math.trunc(hours).toString()}h${Math.trunc(minutes).toString()}min</td>
-        <td class="fator">
-          <ul>
-            ${sleepFactors.map(factor => `<li>${factor}</li>`).join('')}
-          </ul>
-        </td>
-      </tr>
-    </table>
-  `;	
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
 
-  document.querySelector('.last-record').insertAdjacentHTML('beforeend', recordHTML);
+.modal-body input {
+  width: 100%;
+}
+
+.close-modal-btn {
+  position: relative;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  border: none;
+  right: 0;
+  top: 0;
+}
+
+.close-modal-btn i {
+  font-size: 25px;
+}
+
+.submit-sub-btn {
+  margin-top: 1em;
+  padding: 0.4em 2em;
+  background-color: var(--purple);
+  font-size: 14px;
+  line-height: 2em;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+form input {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.influenciadores .input div {
+  position: relative;
+  display: flex;
+}
+
+.influenciadores .input div i.fas {	
+  position: absolute;
+  bottom: 30%;
+  left: 14px;
+}
+
+.influenciadores .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.influenciadores .tag-list .tag {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: solid 1px var(--text-light-purple);
+}
+
+.influenciadores .tag-list .tag .delete-btn {
+  display: inline-block;
+  margin: 0 2px;
+  width: 8px;
+  text-align: center;
+  color: var(--text-light-purple);
+}
+
+.tagify{    
+  width: 100%;
+  max-width: 100%;
+}
+
+.tagify__tag {
+  background-color: #e5e5e5;
+}
+
+.hours-enters{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hours-enters div input {
+  width: 93%;
+}
+
+.records-list-container {
+  margin: 1%;
+  padding: 1%;
+}
+
+.table-ultima {
+  width: 80%;
+  height: 45px;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: rgb(244, 241, 247);
+  border: 0.3px solid rgb(212, 179, 230);
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.table-ultima .fator {
+  border-radius: 15px;
+  background-color: rgb(212, 179, 230);
+  border: 1px solid rgb(212, 179, 230);
+}
+
+.button-h1 {
+  margin-top: 10px;
+  margin: 10px;
+}
+
+.button-new {
+  border: 1px solid rgb(212, 179, 230);
+  padding: 2px;
+  background-color: rgb(212, 179, 230) ;
+  width: 15%;
+  border-radius: 5px;
 }
