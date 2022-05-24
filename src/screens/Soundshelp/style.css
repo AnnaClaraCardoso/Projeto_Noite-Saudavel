@@ -1,0 +1,33 @@
+@import '/src/screens/theme/theme.css';
+
+@import url('/src/screens/theme/body.css');
+
+@import url('/src/screens/components/navbar.css');
+
+body {
+    background: rgb(33, 1, 48);
+           
+}
+
+container {
+    width: 80%;
+    margin: 0;
+}
+
+.grid-x {
+    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    gap: 10px;
+}
+.grid-x img{
+    width: 20%;
+    height: 250;
+}
+
+.playlist {
+    width: 100%;
+    background-color: rgb(179, 174, 182);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.325);
+    margin-bottom: 15px;
+}
