@@ -4,6 +4,8 @@ header {
   height: 50px;
   padding: 20px 20px;
   background-color: var(--purple);
+  display: flex;
+  justify-content: end;
 }
 
 header nav {
