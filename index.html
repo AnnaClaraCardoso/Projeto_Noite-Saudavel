@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="./src/screens/Home/styles/style.css" />
     <link rel="stylesheet" href="./src/screens/Home/styles/media.css" />
     <script src="https://kit.fontawesome.com/1663b56636.js" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     <title>Home</title>
   </head>
 
-  <body>
+  <body class="modal-open">
     <div class="container">
-
-      <div class="modal modal-fade show">
-        <div class="modal-dialog">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <!-- <h2>Gravando sessão</h2> -->
-              <button class="close-modal-btn" onclick="closeModal()">
-                <i class="fa-solid fa-xmark"></i>
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
@@ -48,22 +52,16 @@
                     <input id="password" name="senha" placeholder="Password" type="password" />
                 </div>
     
-                <label for="">Objetivos</label>
-                <div id="colunas">
-                    <div class="content">
-                        <div class="botao">
-                            <p>Desempenho</p>
-                            <p>Concentração</p>
-                            <p>Diminuir Cansaço</p>
-                        </div>
+                <div class="goals">
+                  <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
+                  <div class="input">
+                    <div>
+                      <!-- <i class="fas fa-tags"></i> -->
+                      <input type="text" name="" id="input-goals">
                     </div>
-                    <div class="content">
-                        <div class="botao">
-                            <p>Desempenho</p>
-                            <p>Concentração</p>
-                            <p>Diminuir Cansaço</p>
-                        </div>
-                    </div>
+                  </div>
+                  <div class="tag-list">
+                  </div>
                 </div>
     
                 <label for="objetivo-horas">Quantas horas você deseja dormir por noite?</label>
@@ -73,60 +71,52 @@
                 </div>
     
                 <div id="btn">
-                    <button>Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
-            </form>
+              </form>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
 
       <main>
-        <aside>
-
-          <img src="/assets/dreamer-amico.svg" alt="" srcset="">
-        </aside>
-
-        <div class="col-2">
-          <form class="criar-perfil" action="cadastro-completo.html" method="post">
-            <h2>Entre com sua conta</h2>
-            <div class="email">
-              <input type="email" placeholder="Email" aria-describedby="emailHelp"/>
+        <section class="login">
+          <div class="login-colunms">
+            <div class="col-1">
+              <img src="/assets/dreamer-amico.svg" alt="" srcset="">
             </div>
-
-            <div class="senha">
-              <input type="password" placeholder="Insira uma senha" />
+            <div class="col-2">
+              <form class="criar-perfil" method="post">
+                <h2>Entre com sua conta</h2>
+                <div class="email">
+                  <input type="email" placeholder="Email" aria-describedby="emailHelp"/>
+                </div>
+    
+                <div class="senha">
+                  <input type="password" placeholder="Insira uma senha" />
+                </div>
+    
+                <div class="btn-group">
+                  <button type="submit" class="btn btn-outline-dark" id="botaoEntrar" onclick="acesso()">
+                    Entrar
+                  </button>
+                  <span>Ainda não possui uma conta?</span>
+                  <button type="button" id="botaoCadastro" onclick="openModal()">Cadastre-se</button>
+                  
+                </div>
+                <div class="iconsLogin">
+                  <a href="#" style="text-decoration: none">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+    
+                  <a href="#" style="text-decoration: none">
+                    <i class="fa-brands fa-google"></i>
+                  </a>
+                </div>
+              </form>
             </div>
-
-            <div class="btn-group">
-              <button type="submit" class="btn btn-outline-dark" id="botaoEntrar" onclick="acesso()">
-                Entrar
-              </button>
-              <span>Ainda não possui uma conta?</span>
-              <button id="botaoCadastro" onclick="openModal()">Cadastre-se</button>
-              
-            </div>
-            <div class="iconsLogin">
-              <a href="#" style="text-decoration: none">
-                <i class="fa-brands fa-github"></i>
-              </a>
-
-              <a href="#" style="text-decoration: none">
-                <i class="fa-brands fa-google"></i>
-              </a>
-            </div>
-          </form>
-        </div>
-        <!-- <section>
-          <h2><span>Noite Saudável</span></h2>
-          <p>
-            O projeto tem como objetivo auxiliar o usuário que se encontra na
-            demanda de restabelecer uma rotina adequada de sono, sendo
-            apresentado a dicas diárias, estatísticas de horas de sono,
-            atividades para serem verificadas ao longo do dia e lembretes para
-            ajudar a desacelerar à noite.
-          </p> 
-        </section> -->
+          </div>
+        </section>
       </main>
     </div>
 
