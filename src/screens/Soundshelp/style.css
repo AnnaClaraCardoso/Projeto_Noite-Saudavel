@@ -10,24 +10,45 @@ body {
 }
 
 container {
-    width: 80%;
-    margin: 0;
-}
 
-.grid-x {
-    grid-template-columns: 1fr 1fr 1fr;
-    display: flex;
-    gap: 10px;
-}
-.grid-x img{
-    width: 20%;
-    height: 250;
-}
-
-.playlist {
     width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-1 {
+    width: 50%;
+    padding: 25px;
+}
+
+.col-2 {
+    width: 50%;
+    padding: 25px;
+}
+
+.col-2 img{
+    width: 20%;
+    height: 200;
+}
+
+.col-2 .playlist {
+    width: 100%;
+    gap: 2px;
     background-color: rgb(179, 174, 182);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.325);
     margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text p {
+    font-size: 18px;
+}
+.text .fa-spotify {
+    color: rgb(79, 179, 120);
 }
