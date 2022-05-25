@@ -4,46 +4,44 @@
 
 @import url('/src/screens/components/navbar.css');
 
-body {
-    background: linear-gradient(rgb(33, 1, 48) 0%,
-            rgb(62, 3, 85) 35%,
-            rgb(185, 125, 235) 100%);
-}
-
 .container {
     width: 100%;
-    margin-top: 0;
+    height: 100%;
+    margin: 0;
 }
 
-aside,
-.col-2 {
+/* SESSÃO DE LOGIN */
+.login {
+    background: linear-gradient(rgb(33, 1, 48) 0%, rgb(62, 3, 85) 35%, rgb(185, 125, 235) 100%);
     width: 100%;
 }
 
-.col-2 .criar-perfil {
+.login-colunms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.col-1, .col-2 {
+    width: 100%;
+    height: 100%;
+}
+
+.criar-perfil {
     font-weight: 100;
     width: 100%;
 }
 
-aside {
+.col-1 {
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 100%;
+    text-align: center;
 }
 
-aside img {
-    width: 100%;
-}
-
-main {
-    width: 70%;
-    align-items: center;
-    display: flex;
-    margin-top: 50px;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 3em;
-    gap: 100px;
+.col-1 img {
+    max-width: 70%; 
 }
 
 h2 {
@@ -73,10 +71,8 @@ p {
     gap: 15px;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 4px 4px 4px 4px rgba(65, 27, 85, 0.325);
     margin-bottom: 25px;
     margin-top: 25px;
-    padding: 30px;
 }
 
 .criar-perfil input {
@@ -85,7 +81,7 @@ p {
     border-radius: 8px;
     background-color: rgb(244, 241, 247);
     border: 0.3px solid rgb(212, 179, 230);
-    padding-left: 22px;
+    text-indent: 15px;
 }
 
 .criar-perfil input:focus {
@@ -171,88 +167,124 @@ p {
     border-radius: 8px;
 }
 
+/* MODAL DE CADASTRO */
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .modal {
     position: fixed;
+    z-index: 1072;
     top: 0;
     left: 0;
-    z-index: 1060;
-    height: 100%;
-    outline: 0;
-    /* display: none; */
-  }
-  
-  .modal-fade {
-    transition: opacity .15s linear;
-    background-color: rgba(0,0,0,.2);
+    z-index: 1050;
+    display: none;
     width: 100%;
-  }
-  
-  .modal.show .modal-dialog {
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
+
+.modal.fade {
+    transition: opacity .15s linear;
+    background-color: rgba(0,0,0, .25);
+}
+
+.modal.show .modal-dialog {
+    -webkit-transform: none;
     transform: none;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .modal.fade .modal-dialog {
+}
+
+.modal.fade .modal-dialog {
+    transition: -webkit-transform .3s ease-out;
     transition: transform .3s ease-out;
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    -webkit-transform: translate(0,-50px);
     transform: translate(0,-50px);
-  }
-  
-  .modal-dialog {
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px;
+        margin: 1.75rem auto;
+    }
+}
+
+.modal-dialog {
     position: relative;
     width: auto;
-    margin: 0.5rem;
+    margin: 10% auto;
     pointer-events: none;
-    top: 10%;
-  }
-  
-  .modal-content {
-    /* position: relative; */
+}
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-direction: column;
     flex-direction: column;
-    width: 25%;
-    padding: 2em;
+    width: 100%;
     pointer-events: auto;
     background-color: rgb(62, 3, 85);
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.2);
-    border-radius: 0.3rem;
+    border-radius: .3rem;
     outline: 0;
-    top: 50%;
-    overflow-y: scroll;
-  }
-  
-
-
-.close-modal-btn {
-position: relative;
-background-color: transparent;
-width: 32px;
-height: 32px;
-border: none;
-right: 0;
-top: 0;
-}
-  
-.close-modal-btn i {
-font-size: 25px;
 }
 
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
 
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+    float: right;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .6;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+}
+
+.modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+/* FORM DE CADASTRO */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=Poppins:wght@600&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-
 }
 
 body {
     width: 100%;
-    height: 100vh;
     font-family: 'Merriweather Sans', sans-serif;
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(23, 1, 37)
 }
 
 #form {
@@ -265,64 +297,36 @@ body {
     color: rgb(189, 152, 211);
 }
 
-
-.input {
-    border-radius: 22px;
-    border: 1px rgb(189, 152, 211) solid;
-    padding: 5px;
-    margin: 0px 0px 12px -5px;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 ::-webkit-calendar-picker-indicator {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23815A8C" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
-  }
-
-.input i {
-    font-size: 1.2em;
-    padding: 5px;
-
 }
 
-#colunas {
-    padding-bottom: 12px;
+.input {
+    border-radius: 5px;
+    border: 1px rgb(212, 179, 230) solid;
+    padding: 5px;
+    background-color: rgb(244, 241, 247);
 }
 
 .input input {
-    width: 80%;
+    width: 90%;
     border: none;
     outline: none;
-    background-color: rgb(62, 3, 85);
+    background-color: rgb(244, 241, 247);
     font-family: 'Poppins', sans-serif;
     transform: translateY(-10%);
     color: rgb(189, 152, 211);
-    font-size: 15px;
-
+    font-size: 14px;
 }
 
-#colunas {
-    display: flex;
-
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-p {
-    background-color: rgb(128, 8, 88);
-    text-align: center;
-    justify-content: space-between;
-    margin: 5px;
-    border-radius: 22px;
-    font-size: 12px;
+.input i {
+    padding: 5px;
 }
 
 #btn {
@@ -341,5 +345,11 @@ p {
     color: rgb(62, 3, 85);
     border-radius: 20px;
     outline: none;
+}
 
+.tagify {    
+    width: 100%;
+    padding: 5px;
+    border: none !important;
+    outline: none !important; 
 }
