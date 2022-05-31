@@ -14,6 +14,7 @@
 .login {
     background: linear-gradient(rgb(33, 1, 48) 0%, rgb(62, 3, 85) 35%, rgb(185, 125, 235) 100%);
     width: 100%;
+    height: 100vh;
 }
 
 .login-colunms {
@@ -240,8 +241,7 @@ p {
     align-items: flex-start;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 1rem 1rem;
-    border-bottom: 1px solid #dee2e6;
+    padding: 2rem;
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
 }
@@ -270,7 +270,7 @@ p {
     position: relative;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1rem;
+    padding: 1rem 2rem;
 }
 
 /* FORM DE CADASTRO */
@@ -279,12 +279,6 @@ p {
 * {
     margin: 0;
     padding: 0;
-}
-
-body {
-    width: 100%;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-family: 'Poppins', sans-serif;
 }
 
 #form {
@@ -312,6 +306,7 @@ input::-webkit-inner-spin-button {
     border: 1px rgb(212, 179, 230) solid;
     padding: 5px;
     background-color: rgb(244, 241, 247);
+    margin-bottom: 1rem;
 }
 
 .input input {
@@ -321,9 +316,15 @@ input::-webkit-inner-spin-button {
     background-color: rgb(244, 241, 247);
     font-family: 'Poppins', sans-serif;
     transform: translateY(-10%);
-    color: rgb(189, 152, 211);
+    color: rgb(151, 96, 184);
     font-size: 14px;
+      
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:rgb(151, 96, 184);
+    opacity: 1; /* Firefox */
+  }
 
 .input i {
     padding: 5px;
@@ -343,7 +344,8 @@ input::-webkit-inner-spin-button {
     border: none;
     font-size: 1.2em;
     color: rgb(62, 3, 85);
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
     outline: none;
 }
 
@@ -352,4 +354,5 @@ input::-webkit-inner-spin-button {
     padding: 5px;
     border: none !important;
     outline: none !important; 
+    --placeholder-color: rgb(151, 96, 184) !important;
 }
