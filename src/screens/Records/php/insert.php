@@ -2,9 +2,9 @@
     ini_set('error_reporting', E_ALL);
     ini_set('display_errors', 1);
 
-    //Incluindo a conexão com o banco de dados
+    //Incluindo a conexaoMySQLexão com o banco de dados
 
-    include_once('./src/ConexaoPHP/conexao.php');
+    include_once('/src/phpconexaoMySQLection/conexaoMySQLexao.php');
 
     //Aqui está sendo trazido os valores digitados nos inputs
     
@@ -18,13 +18,13 @@
 
     echo $sql; 
 
-    if(mysqli_query($conexaoMySQl, $sql)){ 	//Aqui o mysqli_query está fazendo uma inserção no banco de dados
-        header("location: ./src/screens/Records/index.html"); 	//Caso a inserção seja feita com sucesso, a página será redirecionada ao index.html
-        mysqli_close($conexaoMySQl); 	//Fechando a conexão, é muito importante que ela seja fechada!!!!
+    if(mysqli_query($conexaoMySQL, $sql)){ 	//Aqui o mysqli_query está fazendo uma inserção no banco de dados
+        echo "<script>conexaoMySQLsole.log('Registro adicionado com sucesso.')</script>";//Caso a inserção seja feita com sucesso, a página será redirecionada ao index.html
+        mysqli_close($conexaoMySQL); 	//Fechando a conexaoMySQLexão, é muito importante que ela seja fechada!!!!
     }
     else{
-        header("location: ./src/screens/Home/index.html");
-        mysqli_close($conexaoMySQl);
+        echo "<script>conexaoMySQLsole.log('Falha ao tentar adicionar registro.')</script>";
+        mysqli_close($conexaoMySQL);
     }
 
 ?>
