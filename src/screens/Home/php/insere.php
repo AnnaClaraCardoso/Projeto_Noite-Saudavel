@@ -21,13 +21,12 @@
     $sql_insert = "INSERT INTO usuario (nome, email, datanasc, senha, horasSono) VALUES ('$username', '$email', '$idade', '$senha', '$goalHours');";
     //echo $sql; Caso queira ver se o sql não está co erro, tire o comentário dessa linha
 
-    if(mysqli_query($con, $sql)){ 	//Aqui o mysqli_query está fazendo uma inserção no banco de dados
+    if(mysqli_query($conexaoMySQL, $sql)){ 	//Aqui o mysqli_query está fazendo uma inserção no banco de dados
         echo "<script>console.log('Registro adicionado com sucesso.')</script>";//Caso a inserção seja feita com sucesso, a página será redirecionada ao index.html
-        mysqli_close($con); 	//Fechando a conexão, é muito importante que ela seja fechada!!!!
+        mysqli_close($conexaoMySQL); 	//Fechando a conexão, é muito importante que ela seja fechada!!!!
     }
     else{
         header("location: sign.php");
-        mysqli_close($con);
+        mysqli_close($conexaoMySQL);
     }
-
 ?>
