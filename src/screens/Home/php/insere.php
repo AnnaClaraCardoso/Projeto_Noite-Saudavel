@@ -24,9 +24,9 @@
     if(mysqli_query($conexaoMySQL, $sql)){ 	//Aqui o mysqli_query está fazendo uma inserção no banco de dados
         echo "<script>console.log('Registro adicionado com sucesso.')</script>";//Caso a inserção seja feita com sucesso, a página será redirecionada ao index.html
         mysqli_close($conexaoMySQL); 	//Fechando a conexão, é muito importante que ela seja fechada!!!!
-    }
-    else{
-        header("location: sign.php");
+    } else {
+        echo "<script>console.log('Falha ao adicionar o registro.')</script>";
         mysqli_close($conexaoMySQL);
     }
+
 ?>
