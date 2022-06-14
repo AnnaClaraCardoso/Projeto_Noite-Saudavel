@@ -3,7 +3,7 @@
     $hostname = "sql204.epizy.com";
     $username = "epiz_31695534";
     $password = "px8ahX1rSSFo4";
-    $database = "epiz_31695534_projetonoitesaudavel	";
+    $database = "epiz_31695534_projetonoitesaudavel";
 
     // Estabelecendo conexão
     $conexaoMySQL = mysqli_connect($hostname, $username, $password, $database);
