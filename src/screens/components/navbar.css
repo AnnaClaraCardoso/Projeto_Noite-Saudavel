@@ -1,0 +1,61 @@
+@import url(/src/screens/theme/theme.css);
+@import url(/src/screens/components/userInfo_Sidebar.css);
+
+header {
+  padding: 20px 20px;
+  background-color: var(--purple);
+  display: flex;
+  justify-content: end;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.profile:hover {
+  background: var(--dark-purple)!important;
+  border-radius: 5px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #666;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+header nav ul li {
+  padding-right: 25px;
+}
+
+.nav-link:hover {
+  color: var(--text-pink);
+}
+
+header nav ul li a {
+  text-decoration: none;
+}
+
+header nav ul li button {
+  background-color: var(--blue);
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--blue);
+  color: #fff;
+  width: 6em;
+}
