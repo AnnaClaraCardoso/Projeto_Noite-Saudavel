@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
+  
+  <title>Estatísticas</title>
+</head>
+<body>
+  <main class="sidebar">
+    <div class="container">
+      <section class="averages">
+        <h2>Médias</h2>
+        <div class="cards">
+          <div class="card sleep-duration">
+            <div class="card-header">
+              <h3 class="card-title">Tempo de sono</h3>
+            </div>
+            <div class="card-body">
+              <span class="value">7h32min</span>
+            </div>
+          </div>
+  
+          <div class="card sleep-at">
+            <div class="card-header">
+              <h3 class="card-title">Hora de dormir</h3>
+            </div>
+            <div class="card-body">
+              <span class="value">21:30</span>
+            </div>
+          </div>
+  
+          <div class="card wake-at">
+            <div class="card-header">
+              <h3 class="card-title">Hora de acordar</h3>
+            </div>
+            <div class="card-body">
+              <span class="value">7:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="sleep-goal">
+        <div class="card">
+          <div class="card-body">
+            <div class="doughnut-chart"></div>
+            <p class="remaining-hours">
+              Você conquistou <span class="sleep-hours"></span> horas de sua meta de sono. 
+              Durma mais <span class="remaing-hours-span"> para completá-la.</span>
+            </p>
+          </div>
+        </div>
+      </section> -->
+
+      <section class="statistics-charts">
+
+        <div class="date-filter">
+          <p>Filtrar por data</p>
+
+          <label for="date-start">Começar em:</label>
+          <input type="date" id="date-start">
+
+          <label for="date-end">Terminar em:</label>
+          <input type="date" id="date-end">
+
+          <button onclick="filterData()" id="reset-date-btn">Filtrar</button>
+          <button onclick="resetDate()" id="reset-date-btn">Reiniciar</button>
+        </div>
+  
+        <section class="charts">
+  
+          <div class="chart sleep-duration">
+            <h3 class="title">Duração de sono</h3>
+            <div class="chart-body">
+              <canvas id="sleep-duration-chart" class="canva-chart"></canvas>
+            </div>
+          </div>
+  
+          <div class="chart sleep-intervals">
+            <h3 class="title">Intervalos de sono</h3>
+            <div class="chart-body">
+              <canvas class="canva-chart" id="sleep-intervals-chart"></canvas>
+            </div>
+          </div>
+  
+          <div class="chart sleep-goal">
+            <h3 class="title">Meta de sono</h3>
+            <div class="chart-body">
+              <canvas class="canva-chart" id="sleep-goal-chart"></canvas>
+            </div>
+          </div>
+
+        </section>
+
+      </section>
+      
+    </div>
+  </main>
+
+  <script src="/src/screens/components/navbar.js"></script>
+  <script src="/src/screens/components/userInfo.js"></script>
+
+  <script src="/node_modules/chart.js/dist/chart.js"></script>
+  <script src="/node_modules/chart.js/dist/chart.min.js"></script>
+  <script src="/node_modules/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.js"></script>    
+  <script src="./index.js"></script>
+</body>
+</html>

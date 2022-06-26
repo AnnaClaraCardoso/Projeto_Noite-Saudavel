@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registros</title>
+
+  <script src="https://kit.fontawesome.com/b0095462dc.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/@yaireo/tagify"></script>
+  <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+  <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+  <main class="sidebar">
+    <div class="container">
+      <section class="records">
+        <div class="modal modal-fade show">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Gravando sessão</h2>
+                <button class="close-modal-btn" onclick="closeModal()">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="hours-enters">
+                    <div class="sleepAt">
+                      <label for="dormiu">Que horas você dormiu?</label>
+                      <small>Leve em conta o tempo que você geralmente demora para adormecer.</small>  
+                      <input type="time" name="dormiu" id="input-sleepAt">
+                    </div>
+                    <div class="wakeUpAt">
+                      <label for="acordou">Que horas você acordou?</label>
+                      <input type="time" name="acordou" id="input-wakeUpAt">
+                    </div>
+                    <div class="sleepFactors">
+                      <div class="input">
+                        <label for="tags-input">Entre com alguns fatores que podem ter afetado seu sono</label>
+                        <div>
+                          <!-- <i class="fas fa-tags"></i> -->
+                          <input type="text" name="" id="input-sleepFactors">
+                        </div>
+                      </div>
+                      <div class="tag-list">
+  
+                      </div>
+                    </div>
+                    <button type="button" class="submit-sub-btn" onclick="appendRecord()" >Salvar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  
+        
+        <section class="records-list-container">
+
+          <section class="last-record">
+            <div class="button-h1">
+              <h1 class="h1-u">Ultima sessão de sono</h1>
+              <input class="button-new" onclick="openModal()" type="button" value="Adicionar nova seção">
+            </div>
+          </section>
+
+          <section class="records-list record">
+            <ul>
+            </ul>
+          </section>
+        </section>
+      </section>
+
+    </div>
+  </main>
+  <script src="/src/screens/components/navbar.js"></script>
+  <script src="/src/screens/components/userInfo.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
