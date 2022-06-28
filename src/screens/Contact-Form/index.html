@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Contate a gente!</h1>
+    
+    <section id="form-container">
+      <h3>Formulário de Contato</h3>
+      <section id="form-itself">
+      <div id="left-side">
+        <section>
+          <label for="name">Seu nome</label><br />
+          <div class="input-container">
+            <i class="fa fa-user-o icon"></i>
+            <input
+              class="input-field"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Nome Completo"
+            /><br />
+          </div>
+
+          <label for="mail">E-mail</label><br />
+          <div class="input-container">
+            <i class="fa fa-envelope icon"></i>
+            <input
+              class="input-field"
+              type="email"
+              id="mail"
+              name="mail"
+              placeholder="Endereço de E-mail"
+            /><br />
+          </div>
+          <label for="phone">Número</label><br />
+          <div class="input-container">
+            <i class="fa fa-mobile icon"></i>
+            <input
+              class="input-field"
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Número de Telefone"
+            />
+          </div>
+        </section>
+        </form>
+      </div>
+      <div id="right-side">
+        <label for="message">Message</label><br />
+        <input type="text" /><br /><br />
+      </div>
+    </section>
+    <section id="service-buttons">
+      <h3>Assunto</h3>
+      <div id="services">
+  
+        <button class="service-button" href="#">Problemas Relacionados ao Site</button>
+        <button class="service-button" href="#">Dúvidas de como Funciona</button>
+        <button class="service-button" href="#">Agradecimentos</button>
+        <button class="service-button" href="#">Outros</button>
+      </div>
+    </section>
+    <div class="message"> 
+      <button id="message" href="#">Send Message</button>
+    </div>
+    <script src="/src/screens/components/navbar.js"></script>
+    <script src="/src/screens/components/userInfo.js"></script>
+  </body>
+</html>
